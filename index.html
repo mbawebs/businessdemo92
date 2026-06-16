@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOB Line | XXL American Bullies</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070707;
+color:white;
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+section{
+padding:100px 8%;
+}
+
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:url('hero.png') center center/cover;
+filter:brightness(.35);
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(to top,#070707 5%,transparent 40%),
+linear-gradient(to right,rgba(0,0,0,.6),rgba(0,0,0,.2));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+}
+
+.hero-logo{
+font-size:22px;
+letter-spacing:8px;
+color:#c72222;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:clamp(60px,10vw,130px);
+line-height:.9;
+text-transform:uppercase;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:22px;
+line-height:1.7;
+color:#dddddd;
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+}
+
+.hero-btn{
+display:inline-block;
+background:#c72222;
+padding:16px 34px;
+border-radius:50px;
+font-weight:bold;
+text-transform:uppercase;
+}
+
+.about{
+background:#0d0d0d;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.about h2{
+font-size:65px;
+margin-bottom:20px;
+text-transform:uppercase;
+}
+
+.about p{
+font-size:18px;
+line-height:1.8;
+color:#cfcfcf;
+}
+
+.about-card{
+background:#151515;
+padding:40px;
+border-left:6px solid #c72222;
+border-radius:20px;
+}
+
+.stud{
+background:#111111;
+}
+
+.stud-header{
+text-align:center;
+margin-bottom:70px;
+}
+
+.stud-header span{
+color:#c72222;
+letter-spacing:4px;
+font-weight:bold;
+}
+
+.stud-header h2{
+font-size:75px;
+margin-top:15px;
+text-transform:uppercase;
+}
+
+.stud-layout{
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+gap:60px;
+align-items:center;
+}
+
+.stud-image{
+position:relative;
+}
+
+.stud-image img{
+width:100%;
+height:700px;
+object-fit:cover;
+border-radius:30px;
+}
+
+.monster-badge{
+position:absolute;
+bottom:30px;
+left:30px;
+background:#c72222;
+padding:18px 25px;
+border-radius:15px;
+font-weight:bold;
+font-size:22px;
+}
+
+.stud-info h3{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.stud-info p{
+color:#cfcfcf;
+line-height:1.8;
+font-size:18px;
+margin-bottom:20px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:30px;
+}
+
+.stat{
+background:#191919;
+padding:25px;
+text-align:center;
+border-radius:18px;
+}
+
+.stat strong{
+display:block;
+font-size:24px;
+color:#c72222;
+margin-bottom:6px;
+}
+
+.gallery{
+background:#070707;
+}
+
+.gallery-header{
+text-align:center;
+margin-bottom:60px;
+}
+
+.gallery-header h2{
+font-size:75px;
+text-transform:uppercase;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(12,1fr);
+gap:18px;
+}
+
+.gallery-grid img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:20px;
+}
+
+.big{
+grid-column:span 6;
+grid-row:span 2;
+}
+
+.medium{
+grid-column:span 3;
+}
+
+.productions{
+background:#0e0e0e;
+}
+
+.production-header{
+text-align:center;
+margin-bottom:60px;
+}
+
+.production-header h2{
+font-size:75px;
+text-transform:uppercase;
+}
+
+.production-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.production-box{
+background:#171717;
+padding:40px 30px;
+border-radius:25px;
+text-align:center;
+}
+
+.production-box h3{
+font-size:26px;
+margin-bottom:15px;
+color:#c72222;
+}
+
+.production-box p{
+line-height:1.7;
+color:#d0d0d0;
+}
+
+.contact{
+position:relative;
+padding:140px 8%;
+}
+
+.contact::before{
+content:"";
+position:absolute;
+inset:0;
+background:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1800&q=80') center/cover;
+filter:brightness(.2);
+}
+
+.contact-content{
+position:relative;
+z-index:2;
+max-width:800px;
+}
+
+.contact span{
+color:#c72222;
+font-weight:bold;
+letter-spacing:4px;
+}
+
+.contact h2{
+font-size:85px;
+margin:20px 0;
+text-transform:uppercase;
+}
+
+.contact p{
+font-size:20px;
+line-height:1.8;
+color:#d8d8d8;
+margin-bottom:30px;
+}
+
+.contact-btn{
+display:inline-block;
+background:#c72222;
+padding:18px 35px;
+border-radius:50px;
+font-weight:bold;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:black;
+color:#888;
+}
+
+@media(max-width:900px){
+
+.about-grid,
+.stud-layout,
+.production-grid{
+grid-template-columns:1fr;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:1fr;
+}
+
+.big,
+.medium{
+grid-column:auto;
+grid-row:auto;
+}
+
+.stud-image img{
+height:auto;
+}
+
+.stats{
+grid-template-columns:1fr 1fr;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.contact h2{
+font-size:55px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-logo">
+MOB LINE
+</div>
+
+<h1>
+XXL BULLY POWER
+</h1>
+
+<p>
+Home of powerful XXL American Bullies built with size, structure, bone and presence. Producing next generation dogs that leave an impact.
+</p>
+
+<a href="#stud" class="hero-btn">
+Meet Monster
+</a>
+
+</div>
+
+</section>
+
+<section class="about">
+
+<div class="about-grid">
+
+<div>
+
+<h2>
+MOB LINE
+</h2>
+
+<p>
+MOB Line focuses on producing powerful American Bullies with extreme substance, heavy bone, broad chests and unmistakable presence.
+</p>
+
+<br>
+
+<p>
+Our vision is simple: create dogs that stand out, carry themselves with confidence and represent the next level of XXL bully breeding.
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3 style="font-size:35px;margin-bottom:20px;">
+Built Different
+</h3>
+
+<p>
+Structure. Bone. Mass. Temperament. Consistency.
+Everything we produce is aimed at creating impressive American Bullies that leave a lasting impression.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stud" id="stud">
+
+<div class="stud-header">
+
+<span>FEATURED STUD</span>
+
+<h2>
+MONSTER
+</h2>
+
+</div>
+
+<div class="stud-layout">
+
+<div class="stud-image">
+
+<img src="stud.png" alt="Monster">
+
+<div class="monster-badge">
+MOB LINE STUD
+</div>
+
+</div>
+
+<div class="stud-info">
+
+<h3>
+Monster
+</h3>
+
+<p>
+Monster represents the vision behind MOB Line. Massive frame, impressive headpiece, powerful front assembly and the kind of substance expected from a true XXL American Bully.
+</p>
+
+<p>
+Available to approved females. Serious breeders only.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong>XXL</strong>
+<span>Type</span>
+</div>
+
+<div class="stat">
+<strong>Heavy</strong>
+<span>Bone</span>
+</div>
+
+<div class="stat">
+<strong>Wide</strong>
+<span>Frame</span>
+</div>
+
+<div class="stat">
+<strong>Elite</strong>
+<span>Stud</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="gallery">
+
+<div class="gallery-header">
+
+<h2>
+MOB Gallery
+</h2>
+
+</div>
+
+<div class="gallery-grid">
+
+<img class="big" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80">
+
+<img class="medium" src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80">
+
+<img class="medium" src="https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=900&q=80">
+
+<img class="medium" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=80">
+
+<img class="medium" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80">
+
+</div>
+
+</section>
+
+<section class="productions">
+
+<div class="production-header">
+
+<h2>
+Productions
+</h2>
+
+</div>
+
+<div class="production-grid">
+
+<div class="production-box">
+<h3>Mass</h3>
+<p>Extreme bone and powerful substance.</p>
+</div>
+
+<div class="production-box">
+<h3>Structure</h3>
+<p>Balanced frames and impressive movement.</p>
+</div>
+
+<div class="production-box">
+<h3>Presence</h3>
+<p>Dogs that command attention wherever they go.</p>
+</div>
+
+<div class="production-box">
+<h3>Consistency</h3>
+<p>Producing quality generation after generation.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<div class="contact-content">
+
+<span>CONTACT MOB LINE</span>
+
+<h2>
+READY TO LEVEL UP?
+</h2>
+
+<p>
+Interested in Monster, upcoming breedings or future productions? Contact MOB Line today and take your program to the next level.
+</p>
+
+<a href="#" class="contact-btn">
+Send Message
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 MOB LINE • American Bully Program
+</footer>
+
+</body>
+</html>
